@@ -9,15 +9,15 @@ public class Main {
     static void main(String[] args)  {
 
         Student s1 = new Student();
-        s1.setsName("Monica");
-        s1.setRollNo(106);
-        s1.setsAge(56);
+        s1.setsName("Messias");
+        s1.setRollNo(107);
+        s1.setsAge(60);
 
-        Configuration cfg = new Configuration();
-        cfg.addAnnotatedClass(com.telusko.Student.class);
-        cfg.configure();
+        SessionFactory sf = new Configuration()
+                .addAnnotatedClass(com.telusko.Student.class)
+                .configure()
+                .buildSessionFactory();
 
-        SessionFactory sf = cfg.buildSessionFactory();
         Session session = sf.openSession();
 
         Transaction transaction = session.beginTransaction();
@@ -25,6 +25,8 @@ public class Main {
         session.persist(s1);
 
         transaction.commit();
+        session.close();
+        sf.close();;
 
         System.out.println(s1);
         }
