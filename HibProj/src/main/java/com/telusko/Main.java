@@ -13,6 +13,8 @@ public class Main {
         s1.setRollNo(107);
         s1.setsAge(60);
 
+        Student s2 = null;
+
         SessionFactory sf = new Configuration()
                 .addAnnotatedClass(com.telusko.Student.class)
                 .configure()
@@ -20,14 +22,16 @@ public class Main {
 
         Session session = sf.openSession();
 
-        Transaction transaction = session.beginTransaction();
+        s2 = session.find(Student.class ,102);
 
-        session.persist(s1);
+        // Transaction transaction = session.beginTransaction();
 
-        transaction.commit();
+        //session.persist(s1);
+
+        //transaction.commit();
         session.close();
-        sf.close();;
+        sf.close();
 
-        System.out.println(s1);
+        System.out.println(s2);
         }
     }
