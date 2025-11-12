@@ -8,41 +8,27 @@ import org.hibernate.cfg.Configuration;
 public class Main {
     static void main(String[] args)  {
 
-        Student s1 = new Student();
-        /*s1.setsName("Bruno");
-        s1.setRollNo(103);
-        s1.setsAge(34);*/
-
-        //Student s2 = null;
+        Alien a1 = new Alien();
+        a1.setAid(101);
+        a1.setAname("Natan");
+        a1.setTech("Java");
 
         SessionFactory sf = new Configuration()
-                .addAnnotatedClass(com.telusko.Student.class)
+                .addAnnotatedClass(com.telusko.Alien.class)
                 .configure()
                 .buildSessionFactory();
 
         Session session = sf.openSession();
 
-        s1 = session.find(Student.class, 107);
-
         Transaction transaction = session.beginTransaction();
 
-        session.remove(s1);
-
-        //Update
-        // session.merge(s1);
+        session.persist(a1);
 
         transaction.commit();
 
-        //s2 = session.find(Student.class ,102);
-
-        // Transaction transaction = session.beginTransaction();
-
-        //session.persist(s1);
-
-        //transaction.commit();
         session.close();
         sf.close();
 
-        System.out.println(s1);
+        System.out.println(a1);
         }
     }
