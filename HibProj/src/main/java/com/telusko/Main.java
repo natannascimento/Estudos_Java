@@ -9,11 +9,11 @@ public class Main {
     static void main(String[] args)  {
 
         Student s1 = new Student();
-        s1.setsName("Messias");
-        s1.setRollNo(107);
-        s1.setsAge(60);
+        s1.setsName("Bruno");
+        s1.setRollNo(103);
+        s1.setsAge(34);
 
-        Student s2 = null;
+        //Student s2 = null;
 
         SessionFactory sf = new Configuration()
                 .addAnnotatedClass(com.telusko.Student.class)
@@ -22,7 +22,13 @@ public class Main {
 
         Session session = sf.openSession();
 
-        s2 = session.find(Student.class ,102);
+        Transaction transaction = session.beginTransaction();
+
+        session.merge(s1);
+
+        transaction.commit();
+
+        //s2 = session.find(Student.class ,102);
 
         // Transaction transaction = session.beginTransaction();
 
@@ -32,6 +38,6 @@ public class Main {
         session.close();
         sf.close();
 
-        System.out.println(s2);
+        System.out.println(s1);
         }
     }
