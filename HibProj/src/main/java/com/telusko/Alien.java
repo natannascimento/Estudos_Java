@@ -2,6 +2,8 @@ package com.telusko;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Alien {
 
@@ -9,16 +11,9 @@ public class Alien {
     private int aid;
     private String aname;
     private String tech;
-    @OneToOne
-    private Laptop laptop;
+    @OneToMany
+    private List<Laptop> laptops;
 
-    public Laptop getLaptop() {
-        return laptop;
-    }
-
-    public void setLaptop(Laptop laptop) {
-        this.laptop = laptop;
-    }
 
     public int getAid() {
         return aid;
@@ -44,13 +39,21 @@ public class Alien {
         this.tech = tech;
     }
 
+    public List<Laptop> getLaptops() {
+        return laptops;
+    }
+
+    public void setLaptops(List<Laptop> laptops) {
+        this.laptops = laptops;
+    }
+
     @Override
     public String toString() {
         return "Alien{" +
                 "aid=" + aid +
                 ", aname='" + aname + '\'' +
                 ", tech='" + tech + '\'' +
-                ", laptop=" + laptop +
+                ", laptop=" + laptops +
                 '}';
     }
 }

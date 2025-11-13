@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.Arrays;
+
 public class Main {
     static void main(String[] args)  {
 
@@ -14,11 +16,17 @@ public class Main {
         l1.setModel("ROG");
         l1.setRam(16);
 
+        Laptop l2 = new Laptop();
+        l2.setLid(2);
+        l2.setBrand("Dell");
+        l2.setModel("XPS");
+        l2.setRam(32);
+
         Alien a1 = new Alien();
         a1.setAid(101);
         a1.setAname("Natan");
         a1.setTech("Java");
-        a1.setLaptop(l1);
+        a1.setLaptops(Arrays.asList(l1, l2));
 
         SessionFactory sf = new Configuration()
                 .addAnnotatedClass(com.telusko.Alien.class)
@@ -30,8 +38,9 @@ public class Main {
 
         Transaction transaction = session.beginTransaction();
 
-        session.persist(a1);
         session.persist(l1);
+        session.persist(l2);
+        session.persist(a1);
 
         transaction.commit();
 
