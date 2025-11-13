@@ -10,6 +10,7 @@ public class Student {
     private int rollNo;
     private  String sName;
     private  int sAge;
+    private  String laptop;
 
 
     public int getRollNo() {

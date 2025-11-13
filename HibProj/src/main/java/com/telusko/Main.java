@@ -8,10 +8,16 @@ import org.hibernate.cfg.Configuration;
 public class Main {
     static void main(String[] args)  {
 
+        Laptop l1 = new Laptop();
+        l1.setBrand("Asus");
+        l1.setModel("ROG");
+        l1.setRam(16);
+
         Alien a1 = new Alien();
         a1.setAid(101);
         a1.setAname("Natan");
         a1.setTech("Java");
+        a1.setLaptop(l1);
 
         SessionFactory sf = new Configuration()
                 .addAnnotatedClass(com.telusko.Alien.class)
@@ -25,6 +31,9 @@ public class Main {
         session.persist(a1);
 
         transaction.commit();
+
+        Alien a2 = session.find(Alien.class, 101);
+        System.out.println(a2);
 
         session.close();
         sf.close();
