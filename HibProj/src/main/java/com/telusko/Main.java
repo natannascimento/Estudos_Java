@@ -28,6 +28,9 @@ public class Main {
         a1.setTech("Java");
         a1.setLaptops(Arrays.asList(l1, l2));
 
+        l1.setAlien(a1);
+        l2.setAlien(a1);
+
         SessionFactory sf = new Configuration()
                 .addAnnotatedClass(com.telusko.Alien.class)
                 .addAnnotatedClass(com.telusko.Laptop.class)
