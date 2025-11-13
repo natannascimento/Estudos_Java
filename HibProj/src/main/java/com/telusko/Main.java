@@ -9,6 +9,7 @@ public class Main {
     static void main(String[] args)  {
 
         Laptop l1 = new Laptop();
+        l1.setLid(1);
         l1.setBrand("Asus");
         l1.setModel("ROG");
         l1.setRam(16);
@@ -21,6 +22,7 @@ public class Main {
 
         SessionFactory sf = new Configuration()
                 .addAnnotatedClass(com.telusko.Alien.class)
+                .addAnnotatedClass(com.telusko.Laptop.class)
                 .configure()
                 .buildSessionFactory();
 
@@ -29,6 +31,7 @@ public class Main {
         Transaction transaction = session.beginTransaction();
 
         session.persist(a1);
+        session.persist(l1);
 
         transaction.commit();
 
@@ -38,6 +41,5 @@ public class Main {
         session.close();
         sf.close();
 
-        System.out.println(a1);
         }
     }
