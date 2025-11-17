@@ -19,19 +19,9 @@ public class Main {
 
         Session session = sf.openSession();
 
-        String brand = "Asus";
+        Laptop laptop = session.getReference(Laptop.class, 2);
 
-        Query query = session.createQuery("select brand, model from Laptop where brand like ?1");
-        query.setParameter(1, brand);
-        List<Object[]> laptopList =  query.getResultList();
-
-        //Laptop l1 = session.find(Laptop.class, 3);
-
-        for(Object[] data : laptopList){
-            System.out.println((String)data[0] + " " + (String)data[1]);
-        }
-
-        System.out.println(laptopList);
+        //System.out.println(laptop);
 
         session.close();
 
