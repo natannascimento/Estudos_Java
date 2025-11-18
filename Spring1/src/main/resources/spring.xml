@@ -6,4 +6,8 @@
     <bean id="alien" class="com.telusko.Alien">
 
     </bean>
+
+    <bean id="lap" class="com.telusko.Laptop">
+
+    </bean>
 </beans>
