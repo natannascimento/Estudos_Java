@@ -18,8 +18,8 @@ public class App
 //        //alien2.code();
 //        System.out.println(alien2.age);
 
-        Computer computer = context.getBean(Computer.class);
-
-        Desktop desktop =  context.getBean( Desktop.class);
+//        Computer computer = context.getBean(Computer.class);
+//
+//        Desktop desktop =  context.getBean( Desktop.class);
     }
 }
