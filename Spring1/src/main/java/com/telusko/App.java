@@ -8,7 +8,7 @@ public class App
     public static void main( String[] args )
     {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-        Alien alien1 = (Alien) context.getBean("alien");
+        Alien alien1 = context.getBean("alien", Alien.class);
         //alien1.setAge(21);
         System.out.println(alien1.getAge());
         alien1.code();
@@ -18,6 +18,8 @@ public class App
 //        //alien2.code();
 //        System.out.println(alien2.age);
 
-//        Desktop desktop = (Desktop) context.getBean("computer2");
+        Computer computer = context.getBean(Computer.class);
+
+        Desktop desktop =  context.getBean( Desktop.class);
     }
 }
