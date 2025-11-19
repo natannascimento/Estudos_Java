@@ -5,28 +5,28 @@ import java.beans.ConstructorProperties;
 public class Alien {
 
     private int age;
-    private Laptop laptop;
+    private Computer computer;
 
     public Alien() {
-        System.out.println("Alien object created!");
+        //System.out.println("Alien object created!");
     }
-    @ConstructorProperties({"age", "laptop"})
-    public Alien(int age, Laptop laptop) {
-        this.laptop = laptop;
-        this.age = age;
-    }
+//    @ConstructorProperties({"age", "computer"})
+//    public Alien(int age, Computer computer) {
+//        this.laptop = laptop;
+//        this.age = age;
+//    }
 
     public void code() {
         System.out.println("Alien is coding...");
-        laptop.compile();
+        computer.compile();
     }
 
-    public Laptop getLaptop() {
-        return laptop;
+    public Computer getComputer() {
+        return computer;
     }
 
-    public void setLaptop(Laptop laptop) {
-        this.laptop = laptop;
+    public void setComputer(Computer computer) {
+        this.computer = computer;
     }
 
     public int getAge() {
@@ -34,7 +34,7 @@ public class Alien {
     }
 
     public void setAge(int age) {
-        System.out.println("setter called");
+        //System.out.println("setter called");
         this.age = age;
     }
 }
