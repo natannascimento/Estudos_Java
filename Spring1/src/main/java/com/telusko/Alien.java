@@ -1,5 +1,7 @@
 package com.telusko;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.beans.ConstructorProperties;
@@ -27,6 +29,8 @@ public class Alien {
         return computer;
     }
 
+    @Autowired
+    @Qualifier("laptop")
     public void setComputer(Computer computer) {
         this.computer = computer;
     }
