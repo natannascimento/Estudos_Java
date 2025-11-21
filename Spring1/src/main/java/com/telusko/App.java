@@ -11,7 +11,7 @@ public class App
     {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        Desktop desktop = context.getBean(Desktop.class);
+        Desktop desktop = context.getBean("desktop",Desktop.class);
         desktop.compile();
 
 //        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
