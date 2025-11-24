@@ -1,7 +1,7 @@
 package com.telusko.SpringJDBCEx.service;
 
 import com.telusko.SpringJDBCEx.model.Student;
-import com.telusko.SpringJDBCEx.repository.StudantRepository;
+import com.telusko.SpringJDBCEx.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,21 +10,21 @@ import java.util.List;
 @Service
 public class StudentService {
 
-    private StudantRepository studantRepository;
+    private StudentRepository studentRepository;
 
-    public StudantRepository getStudantRepository() {
-        return studantRepository;
+    public StudentRepository getStudentRepository() {
+        return studentRepository;
     }
     @Autowired
-    public void setStudantRepository(StudantRepository studantRepository) {
-        this.studantRepository = studantRepository;
+    public void setStudentRepository(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
     }
 
     public void addStudent(Student student) {
-        studantRepository.save(student);
+        studentRepository.save(student);
     }
 
     public List<Student> getStudents() {
-        return studantRepository.findAll();
+        return studentRepository.findAll();
     }
 }
