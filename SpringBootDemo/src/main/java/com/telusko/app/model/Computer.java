@@ -1,4 +1,4 @@
-package com.telusko.app;
+package com.telusko.app.model;
 
 public interface Computer {
     void compile();
