@@ -9,5 +9,7 @@
        <!-- <h2>Result is : <%= session.getAttribute("result") %> </h2> -->
         <p> ${alien} </p>
 
+        <p> Welcome to the ${course} World </p>
+
     </body
 </html>
